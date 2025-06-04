@@ -59,6 +59,16 @@ jobs:
           files: info.lcov
           token: ${{ secrets.CODECOV_TOKEN }}
 
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test
+        uses: skiptools/swift-android-action@v2
+        with:
+          copy-files: Sources Tests
+
   windows:
     runs-on: windows-latest
     steps:
